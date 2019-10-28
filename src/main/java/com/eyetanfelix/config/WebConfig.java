@@ -3,6 +3,7 @@ package com.eyetanfelix.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Description;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -14,7 +15,12 @@ import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 public class WebConfig implements WebMvcConfigurer {
 
     @Bean
-    @Description("Thymeleaf template resolver service HtML 5")
+    public RestTemplate weatherRestTemplate() {
+        return new RestTemplate();
+    }
+
+    @Bean
+    @Description("Thymeleaf template resolver service HTML 5")
     public ClassLoaderTemplateResolver templateResolver() {
         var templateResolver = new ClassLoaderTemplateResolver();
 

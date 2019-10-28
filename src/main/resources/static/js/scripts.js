@@ -19,7 +19,9 @@ $(document).ready(function (){
 
     // Respond to dialog event
     $('#mobileModal').on('hide.bs.modal', function (e) {
+        var location = $('#location').val();
         $('#mobileNumber').val('');
+        fetchAndDisplayWeather(location, null);
     });
 
     // get data
